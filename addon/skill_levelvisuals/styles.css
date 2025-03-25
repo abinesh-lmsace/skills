@@ -1,0 +1,57 @@
+/*Skill level visual*/
+.skill-level-visuals .level-image .responsive-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    filter: grayscale(1);
+}
+.skill-level-visuals .level-image.current-level-img .responsive-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    filter: none;
+}
+.skill-level-visuals .level-image.completed .responsive-img {
+    filter: none;
+}
+.skill-level-visuals .current-level-section span.current-level-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+.skill-level-visuals .skill-levels {
+    text-align: center;
+    margin-top: 20px;
+}
+.skill-level-visuals .skill-levels .current-level-text label {
+    font-style: italic;
+}
+.skill-level-visuals .skill-levels .current-level-name {
+    font-weight: bold;
+    background: #f1f1f1;
+    padding: 2px 10px;
+    display: inline-block;
+    border-radius: 15px;
+}
+.skill-level-visuals .skill-levels .level-items {
+    display: inline-block;
+}
+.skill-level-visuals .level-item {
+    text-align: center;
+    padding: 10px;
+    margin: 5px 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+.skill-level-visuals .level-item .level-image {
+    margin: 5px;
+}
+.skill-level-visuals .level-image.current-level-img {
+    margin: 10px 0;
+}
+.skill-level-visuals .current-level-section {
+    text-align: center;
+}
+.skill-level-visuals .level-item .current-level {
+    display: block;
+}
+/* End of Skill level visual*/

@@ -1,0 +1,197 @@
+/*Progress*/
+/*Donut Progress*/
+.skill-progress-dash-widget {
+    width: 100%;
+    margin-top: 30px;
+}
+.skill-progress-dash-widget .donut-inner-circle {
+    width: 250px;
+    height: 250px;
+    background: none;
+    margin: 0 auto 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.skill-progress-dash-widget .donut-inner-circle:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #f1f1f1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.skill-progress-dash-widget .donut-inner-circle > span,
+.skill-progress-dash-widget .donut-inner-circle > span > span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.skill-progress-dash-widget .donut-inner-circle .progress-left {
+    left: 0;
+}
+.donut-inner-circle {
+    border-radius: 2px;
+    background: #000;
+}
+.skill-progress-dash-widget .donut-inner-circle .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+.skill-progress-dash-widget .donut-inner-circle .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    border-left: 0;
+    border-color: #020202;
+    border-right-color: #000;
+    transform-origin: center left;
+}
+.skill-progress-dash-widget .donut-inner-circle .progress-right {
+    right: 0;
+}
+.skill-progress-dash-widget .donut-inner-circle .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+    border-right: 0;
+    border-color: #020202;
+    border-left-color: #000;
+    transform-origin: center right;
+}
+.skill-progress-dash-widget .donut-inner-circle .skill-total-info {
+    text-align: center;
+}
+.skill-progress-dash-widget .donut-inner-circle .skill-total-info .earned {
+    font-size: 56px;
+    font-weight: bold;
+}
+.skill-progress-dash-widget .donut-inner-circle .skill-total-info .total-points {
+    font-size: 20px;
+    font-weight: bold;
+}
+.skill-progress-dash-widget .donut-inner-circle .skill-total-info p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Drawer */
+.drawer .skill-progress-dash-widget > .skill-progress {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+.drawer .skill-progress-dash-widget .donut-inner-circle {
+    width: 240px;
+    height: 240px;
+}
+.drawer .skill-progress-dash-widget .skills-list {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .skill-progress-dash-widget .donut-inner-circle {
+        width: 230px;
+        height: 230px;
+    }
+}
+/* End of Donut progress */
+
+/* Progress skill lists */
+.skill-progress-dash-widget .skills-list .skill-item {
+    margin-bottom: 15px;
+}
+.skill-progress-dash-widget .skills-list .skill-name {
+    font-size: 20px;
+    font-weight: 500;
+}
+.skill-progress-dash-widget .skill-user-level .current-user-level span,
+.skill-progress-dash-widget .skill-user-level .next-level-info span {
+    font-size: 10px;
+    font-weight: bold;
+    color: #616161;
+}
+.skill-progress-dash-widget .skill-user-level.d-flex,
+.skill-progress-dash-widget .skill-basic-info.d-flex {
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+.skill-progress-dash-widget .skills-list .points-info-box {
+    padding: 1px 5px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+.skill-progress-dash-widget .skills-list .points-info-box .skill-completed {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+.skill-progress-dash-widget .skills-list .points-info-box .skill-completed i {
+    font-size: 16px;
+    margin-right: 5px;
+}
+.skill-progress-dash-widget .skills-list .points-info-box .earned {
+    font-size: 14px;
+}
+.skill-progress-dash-widget .skills-list .points-info-box .total-points {
+    font-size: 8px;
+}
+.skill-progress-dash-widget .skills-list .skill-item .progress-bar {
+    padding: 0.15rem 0;
+}
+.skill-progress-dash-widget .skills-list .skill-item .progress-bar-placeholder {
+    background: #ccc;
+}
+
+@media (min-width: 767px) {
+    .skill-progress-dash-widget {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .skill-progress-dash-widget > .skill-progress {
+        margin: 0 60px 0 10px;
+    }
+    .drawer .skill-progress-dash-widget {
+        display: block;
+    }
+    .skill-progress-dash-widget .skills-list {
+        width: 60%;
+    }
+    .drawer .skill-progress-dash-widget .skills-list {
+        margin-left: 0;
+    }
+}
+/* End of Progress skill lists */
+
+/* Boost union region block skills */
+/* Progress bar style */
+/* To align the progress bar and the skill list in a separate row*/
+body.limitedwidth .main-inner-wrapper .theme-block-region .block-region .skill-progress-dash-widget {
+    display: block;
+}
+/* Removed the left & right margin, and added margin bottom to skill progress bar */
+body.limitedwidth .main-inner-wrapper .theme-block-region .block-region .skill-progress-dash-widget > .skill-progress {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+/* Align the full width of the skills list */
+body.limitedwidth .main-inner-wrapper .theme-block-region .block-region .skill-progress-dash-widget .skills-list {
+    width: 100%;
+}
+/* End of Boost union region block skills */

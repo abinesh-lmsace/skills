@@ -1,0 +1,118 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+
+    @template skilladdon_skillprogress/widget_skillprogress
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+
+    }
+}}
+{{#data.skillnoresult}}
+    {{#noresult}}{{{noresult}}}{{/noresult}}
+{{/data.skillnoresult}}
+
+{{^data.skillnoresult}}
+<div class="skill-progress-dash-widget">
+    {{^data.hidedonut}}
+    <div class="skill-progress">
+        {{#data.tsk_donut}}
+            <div class="donut-skill-progress">
+                <div class="donut-inner-circle" data-toggle="tooltip" data-title="{{{percentage}}}%">
+                    <span class="progress-left" data-progress-percent="{{{percentage}}}" >
+                        <span class="progress-bar" style="transform: rotate({{deg2}}deg);"></span>
+                    </span>
+                    <span class="progress-right" data-progress-percent="{{{percentage}}}">
+                        <span class="progress-bar" style="transform: rotate({{deg1}}deg);"></span>
+                    </span>
+
+                    <div class="skill-total-info">
+                        <span class="earned"> {{{pointsearned}}} </span>
+                        <span class="total-points"> / {{{totalpoints}}} </span>
+                        <p> {{#str}} totalpoints, block_dash {{/str}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/data.tsk_donut}}
+    </div>
+    {{/data.hidedonut}}
+
+    {{^data.hideskills}}
+    <div class="skills-list">
+        <div class="skill-items-wrapper">
+            {{#data.skills}}
+            <div class="skill-item">
+                <div class="item-wrapper">
+                    <!-- Skill related basic info like name and points user earned -->
+                    <div class="skill-basic-info d-flex">
+                        <!-- Skillname -->
+                        <div class="skill-name text-left">
+                            {{{skillname}}}
+                        </div>
+                        <!-- Point detail -->
+                        <div class="skill-points-info text-right">
+                            <div class="points-info-box" style="background-color:{{{color}}};">
+                                {{#completed}}
+                                <span class="skill-completed">
+                                    <i class="fa fa-check"></i>
+                                    {{#str}} completed, core {{/str}}
+                                </span>
+                                {{/completed}}
+                                {{^completed}}
+                                <span class="earned">{{{earned}}} </span> <span class="total-points"> / {{{skillpoints}}} </span>
+                                {{/completed}}
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Skill user progress bar  -->
+                    <div class="skill-progress">
+                        <div class="progress-bar-placeholder">
+                            <span class="progress-bar" role="progressbar" aria-valuenow="{{{progress}}}" style="width:{{{progress}}}%;background-color:{{{color}}};"></span>
+                        </div>
+                    </div>
+
+                    <!-- User current level and next level related data. -->
+                    {{#level}}
+                    <div class="skill-user-level d-flex">
+                        <div class="current-user-level text-left">
+                            {{#currentlevelname}}
+                            <span class="current-level-name">{{{level.currentlevelname}}}</span>
+                            {{/currentlevelname}}
+                        </div>
+
+
+                        <div class="next-level-info text-right">
+                            <div class="info-str">
+                                <span>{{{nextlevelstr}}}</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    {{/level}}
+                </div>
+            </div>
+            {{/data.skills}}
+        </div>
+    </div>
+    {{/data.hideskills}}
+</div>
+{{/data.skillnoresult}}
