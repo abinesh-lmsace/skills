@@ -73,8 +73,8 @@ jobs:
 
       - name: Install moodle-plugin-ci
         run: |
-          moodle-plugin-ci add-plugin --clone https://github.com/bdecentgmbh/moodle-availability_skills.git
-          moodle-plugin-ci add-plugin --clone https://github.com/bdecentgmbh/moodle-block_dash.git --branch dev
+          moodle-plugin-ci add-plugin --clone https://github.com/raja-lmsace/moodle-availability-skills.git
+          moodle-plugin-ci add-plugin --clone https://github.com/raja-lmsace/moodle-block-dash.git
           moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1
         env:
           DB: ${{ matrix.database }}
