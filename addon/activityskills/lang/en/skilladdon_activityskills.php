@@ -22,12 +22,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Activity Skills';
-
-// ....Course activity skill table strings.
-$string['assignmodskills'] = 'Assign activity skills';
-$string['moduleskills'] = 'Set a course module skills';
 $string['assignmodeskills_desc'] = 'This table displays the enabled skills in this course and you can set a activity completion to earn skill points.';
-// ...Course activity menu strings.
-$string['modskillsnothingtodisplay'] = 'Skills are not created yet or not use in this course';
+$string['assignmodskills'] = 'Assign activity skills';
 $string['modskills'] = 'Activity skills';
+$string['modskillsnothingtodisplay'] = 'Skills are not created yet or not use in this course';
+$string['moduleskills'] = 'Set a course module skills';
+$string['pluginname'] = 'Activity Skills';

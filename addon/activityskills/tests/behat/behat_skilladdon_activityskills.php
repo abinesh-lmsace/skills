@@ -52,4 +52,23 @@ class behat_skilladdon_activityskills extends behat_base {
         }
     }
 
+    /**
+     * View assignment submission button.
+     *
+     * @Given /^I click on assignment view submissions link$/
+     *
+     * @throws DriverException If there aren't exactly 2 windows open.
+     */
+    public function i_click_on_assignment_submissions_link() {
+        global $CFG;
+
+        if ($CFG->branch >= 405) {
+            $this->execute('behat_general::i_click_on_in_the',
+                ['Submissions', 'link', '.secondary-navigation', 'css_element']);
+        } else {
+            $this->execute('behat_general::i_click_on_in_the',
+                ['View all submissions', 'link', '.tertiary-navigation', 'css_element']);
+        }
+    }
+
 }

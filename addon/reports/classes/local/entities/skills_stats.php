@@ -38,6 +38,22 @@ class skills_stats extends base {
      *
      * @return array
      */
+    protected function get_default_tables(): array {
+        return [
+            'tool_skills',
+            'tool_skills_levels',
+            'tool_skills_courses',
+            'tool_skills_userpoints',
+            'tool_skills_levels_max',
+            'tool_skills_courses_count',
+            'tool_skills_userpoints_count',
+        ];
+    }
+    /**
+     * Database tables that this entity uses and their default aliases
+     *
+     * @return array
+     */
     protected function get_default_table_aliases(): array {
 
         return [
@@ -120,6 +136,7 @@ class skills_stats extends base {
             $this->get_entity_name()
         ))
         ->set_is_sortable(true)
+        ->add_joins($this->get_joins())
         ->add_field("{$skillalias}.id")
         ->add_callback(static function ($value, $row): string {
             $userslist = \tool_skills\skills::get($value)->get_proficient();

@@ -190,3 +190,4 @@ $string['skillsdatasource'] = 'Skills';
 $string['userproficiency'] = 'Proficiency';
 $string['userpercentage'] = 'Percentage';
 $string['grade'] = 'Grade';
+$string['subplugintype_skilladdon'] = 'Skill addon';

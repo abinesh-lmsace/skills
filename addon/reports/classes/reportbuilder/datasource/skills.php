@@ -72,8 +72,23 @@ class skills extends datasource {
         $this->add_join($maxleveljoin);
 
         $statsentity = new \skilladdon_reports\local\entities\skills_stats();
-        $coursealias = $statsentity->get_table_alias('tool_skills_courses_count');
-        $this->add_join($statsentity->skill_stats_join());
+        $skillalias = $statsentity->get_table_alias('tool_skills');
+        $coursecountalias = $statsentity->get_table_alias('tool_skills_courses_count');
+        $userpointsalias = $statsentity->get_table_alias('tool_skills_userpoints_count');
+
+        $statsjoin = "LEFT JOIN (
+                SELECT skill, count(*) as coursescount FROM {tool_skills_courses} tsc GROUP BY tsc.skill
+            ) {$coursecountalias} ON {$coursecountalias}.skill = {$mainskillalias}.id
+            LEFT JOIN (
+                SELECT skill, count(*) as userscount FROM {tool_skills_userpoints} tsc GROUP BY tsc.skill
+            ) {$userpointsalias} ON {$userpointsalias}.skill = {$mainskillalias}.id";
+
+        $skilljoin = "LEFT JOIN (
+            SELECT id FROM {tool_skills} ts GROUP BY ts.id
+        ) {$skillalias} ON {$skillalias}.id = {$mainskillalias}.id";
+
+        $this->add_join($statsjoin);
+        $this->add_join($skilljoin);
         $this->add_entity($statsentity);
 
         $maxleveljoin = "JOIN (

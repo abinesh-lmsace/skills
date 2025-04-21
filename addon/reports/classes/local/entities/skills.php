@@ -38,6 +38,25 @@ class skills extends base {
      *
      * @return array
      */
+    protected function get_default_tables(): array {
+        return [
+            'user',
+            'context',
+            'course',
+            'tool_skills',
+            'tool_skills_levels',
+            'tool_skills_courses',
+            'tool_skills_userpoints',
+            'tool_skills_levels_max',
+            'cohort_members',
+            'cohort',
+        ];
+    }
+    /**
+     * Database tables that this entity uses and their default aliases
+     *
+     * @return array
+     */
     protected function get_default_table_aliases(): array {
 
         return [

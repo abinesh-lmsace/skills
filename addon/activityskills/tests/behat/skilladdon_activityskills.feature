@@ -146,7 +146,9 @@ Feature: Allocate skill points to the users based on activity completion
     And I am on the "Test page1" "page activity" page
     And I navigate to "Settings" in current page administration
     And I expand all fieldsets
-    And I set the student view to complete the activity condition
+    And I set the following fields to these values:
+      | Add requirements         | 1                  |
+      | id_completionview        | 1                  |
     And I press "Save and return to course"
     And I log out
     And I am on the "Course 1" course page logged in as student1
@@ -297,8 +299,9 @@ Feature: Allocate skill points to the users based on activity completion
     And I should see "(Earned: 0)" in the ".skills-points-Assign1" "css_element"
     And I log out
     When I am on the "Assign1" "assign activity" page logged in as admin
-    And I follow "View all submissions"
-    And I click on "Grade" "link" in the "Student First" "table_row"
+    And I click on assignment view submissions link
+    And I click on "#action-menu-1" "css_element" in the "Student First" "table_row"
+    And I choose "Grade" in the open action menu
     When I set the following fields to these values:
       | Grade out of 100  | 60 |
     And I press "Save changes"

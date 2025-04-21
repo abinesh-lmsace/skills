@@ -27,7 +27,7 @@
  *
  * @return array List of widgets.
  */
-function skilladdon_skillprogress_register_widget() : array {
+function skilladdon_skillprogress_register_widget(): array {
     return [
         [
             'name' => get_string('widget:skillprogress', 'block_dash'),

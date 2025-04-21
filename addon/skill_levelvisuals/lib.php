@@ -27,7 +27,7 @@
  *
  * @return array List of widgets.
  */
-function skilladdon_skill_levelvisuals_register_widget() : array {
+function skilladdon_skill_levelvisuals_register_widget(): array {
     return [
         [
             'name' => get_string('widget:skilllevelvisuals', 'block_dash'),

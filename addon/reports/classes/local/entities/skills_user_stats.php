@@ -42,6 +42,22 @@ class skills_user_stats extends base {
      *
      * @return array
      */
+    protected function get_default_tables(): array {
+        return [
+            'tool_skills',
+            'tool_skills_levels',
+            'tool_skills_courses',
+            'tool_skills_userpoints',
+            'tool_skills_levels_max',
+            'tool_skills_courses_count',
+            'tool_skills_userpoints_count',
+        ];
+    }
+    /**
+     * Database tables that this entity uses and their default aliases
+     *
+     * @return array
+     */
     protected function get_default_table_aliases(): array {
 
         return [

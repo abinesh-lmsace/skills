@@ -177,7 +177,7 @@ class skillprogress_widget extends abstract_widget {
 
         // Get filters.
         $filters = $this->get_filter_collection()->get_filters();
-        $conditionsql = ['tsk.status = 1']; // Only active skills.
+        $conditionsql = ['tsk.status = 1 AND tsk.archived != 1']; // Only active skills.
         $params = [];
 
         // Conditions.
