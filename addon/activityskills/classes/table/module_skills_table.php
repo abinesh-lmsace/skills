@@ -212,7 +212,7 @@ class module_skills_table extends \table_sql {
                 $action['attributes'],
             );
         }
-        return html_writer::div(join('', $actionshtml), 'skill-course-actions skill-actions mr-0');
+        return html_writer::div(join('', $actionshtml), 'skill-course-actions skill-actions');
     }
 
 
