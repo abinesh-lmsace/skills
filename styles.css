@@ -7,7 +7,7 @@
     z-index: 0;
 }
 .skill-actions .toolskills-status-switch .form-switch .form-check-input,
-.item-actions .toolskills-status-switch .form-switch .form-check-input{
+.item-actions .toolskills-status-switch .form-switch .form-check-input {
     position: absolute;
     z-index: -1;
 }
