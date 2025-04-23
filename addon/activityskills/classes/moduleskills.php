@@ -248,7 +248,8 @@ class moduleskills extends \tool_skills\allocation_method {
         $cminfo = \cm_info::create($cm, $userid);
         $modulecompletion = $completion->get_data($cminfo, true, $userid);
 
-        if ($modulecompletion->completionstate == COMPLETION_COMPLETE) {
+        if ($modulecompletion->completionstate == COMPLETION_COMPLETE ||
+            $modulecompletion->completionstate == COMPLETION_COMPLETE_PASS) {
 
             // Get course skills records.
             $skills = $skills ?: $this->get_instance_skills();

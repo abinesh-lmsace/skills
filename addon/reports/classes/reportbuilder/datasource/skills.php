@@ -161,8 +161,9 @@ class skills extends datasource {
             JOIN {course_modules} cma ON cma.id = {$courseactivity}.modid
             JOIN {modules} mo ON mo.id = cma.module ";
 
-        $joins['courseuser'] = "LEFT JOIN {tool_skills_userpoints} {$userpointalias} ON {$userpointalias}.skill = {$mainskillalias}.id
-        JOIN {user} {$useralias} ON {$useralias}.id = {$userpointalias}.userid";
+        $joins['courseuser'] = "
+            LEFT JOIN {tool_skills_userpoints} {$userpointalias} ON {$userpointalias}.skill = {$mainskillalias}.id
+            JOIN {user} {$useralias} ON {$useralias}.id = {$userpointalias}.userid";
 
         $this->add_entity($modcompletionentity->add_joins([$joins['courseactivity'], $joins['courseuser']]));
 
