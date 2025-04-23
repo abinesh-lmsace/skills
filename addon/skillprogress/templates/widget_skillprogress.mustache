@@ -63,11 +63,11 @@
                     <!-- Skill related basic info like name and points user earned -->
                     <div class="skill-basic-info d-flex">
                         <!-- Skillname -->
-                        <div class="skill-name text-left">
+                        <div class="skill-name {{txtleftclass}}">
                             {{{skillname}}}
                         </div>
                         <!-- Point detail -->
-                        <div class="skill-points-info text-right">
+                        <div class="skill-points-info {{txtrightclass}}">
                             <div class="points-info-box" style="background-color:{{{color}}};">
                                 {{#completed}}
                                 <span class="skill-completed">
@@ -92,14 +92,14 @@
                     <!-- User current level and next level related data. -->
                     {{#level}}
                     <div class="skill-user-level d-flex">
-                        <div class="current-user-level text-left">
+                        <div class="current-user-level {{txtleftclass}}">
                             {{#currentlevelname}}
                             <span class="current-level-name">{{{level.currentlevelname}}}</span>
                             {{/currentlevelname}}
                         </div>
 
 
-                        <div class="next-level-info text-right">
+                        <div class="next-level-info {{txtrightclass}}">
                             <div class="info-str">
                                 <span>{{{nextlevelstr}}}</span>
                             </div>

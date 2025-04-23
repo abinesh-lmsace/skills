@@ -46,6 +46,7 @@ class skills_activities_completion extends base {
      */
     protected function get_default_tables(): array {
         return [
+            'user',
             'tool_skills' ,
             'tool_skills_levels',
             'tool_skills_courses',

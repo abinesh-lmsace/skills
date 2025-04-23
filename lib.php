@@ -70,6 +70,17 @@ function tool_skills_extend_navigation_course(navigation_node $navigation, stdCl
 function tool_skills_myprofile_navigation(tree $tree, $user, $iscurrentuser, $course) {
     global $USER, $DB;
 
+    // Get the learningtools category.
+    if (!array_key_exists('toolskills', $tree->__get('categories'))) {
+        // Create the category.
+        $categoryname = get_string('skillprofilecategory', 'tool_skills');
+        $category = new core_user\output\myprofile\category('toolskills', $categoryname, 'privacyandpolicies');
+        $tree->add_category($category);
+    } else {
+        // Get the existing category.
+        $category = $tree->__get('categories')['toolskills'];
+    }
+
     if ($iscurrentuser) {
         $systemcontext = \context_system::instance();
 

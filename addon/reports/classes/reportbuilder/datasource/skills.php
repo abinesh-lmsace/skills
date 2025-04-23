@@ -102,6 +102,7 @@ class skills extends datasource {
 
         // User stats entity.
         $userstatsentity = new \skilladdon_reports\local\entities\skills_user_stats();
+        $userpointalias = $userstatsentity->get_table_alias('tool_skills_userpoints');
         // User and user stats join.
         $joins['user'] = "LEFT JOIN {tool_skills_userpoints} {$userpointalias} ON {$userpointalias}.skill = {$mainskillalias}.id
         JOIN {user} {$useralias} ON {$useralias}.id = {$userpointalias}.userid";
@@ -151,7 +152,19 @@ class skills extends datasource {
 
         // Skills activities entity.
         $modcompletionentity = new \skilladdon_reports\local\entities\skills_activities_completion();
-        $this->add_entity($modcompletionentity->add_joins([$joins['activity'], $joins['user']]));
+        $courseactivity = $modcompletionentity->get_table_alias('tool_skills_course_activity');
+        $userpointalias = $modcompletionentity->get_table_alias('tool_skills_userpoints');
+        $useralias = $modcompletionentity->get_table_alias('user');
+
+        $joins['courseactivity'] = "LEFT JOIN {tool_skills_course_activity} {$courseactivity}
+            ON {$courseactivity}.skill = {$mainskillalias}.id AND {$courseactivity}.uponmodcompletion != 0
+            JOIN {course_modules} cma ON cma.id = {$courseactivity}.modid
+            JOIN {modules} mo ON mo.id = cma.module ";
+
+        $joins['courseuser'] = "LEFT JOIN {tool_skills_userpoints} {$userpointalias} ON {$userpointalias}.skill = {$mainskillalias}.id
+        JOIN {user} {$useralias} ON {$useralias}.id = {$userpointalias}.userid";
+
+        $this->add_entity($modcompletionentity->add_joins([$joins['courseactivity'], $joins['courseuser']]));
 
         // Support for 4.2.
         if (method_exists($this, 'add_all_from_entities')) {

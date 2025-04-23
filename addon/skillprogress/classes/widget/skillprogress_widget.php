@@ -149,7 +149,7 @@ class skillprogress_widget extends abstract_widget {
      * @return void
      */
     public function build_widget() {
-
+        global $CFG;
         $this->data = [];
 
         $skills = $this->get_skills();
@@ -163,6 +163,9 @@ class skillprogress_widget extends abstract_widget {
         $this->data = $data;
         $this->data['skillnoresult'] = empty($data['skills']) && isset($data['hideskills']) && isset($data['hidedonut']);
         $this->data['skillscount'] = !empty($data['skills']) ? count($data['skills']) : 0;
+        // Boostrap 5.0 classes use for the text alignment.
+        $this->data['txtleftclass'] = ($CFG->branch >= 500) ? 'text-start' : 'text-left';
+        $this->data['txtrightclass'] = ($CFG->branch >= 500) ? 'text-end' : 'text-right';
 
         return $this->data;
     }
